@@ -1,6 +1,6 @@
 from typing import Any, Dict, List, Optional
 
-from specific_property import SpecificProperty
+from src.openral_py.model.specific_property import SpecificProperty
 
 
 class SpecificProperties:
@@ -23,3 +23,42 @@ class SpecificProperties:
 
     def to_maps(self) -> List[Dict[str, Any]]:
         return [value.to_map() for value in self._specific_properties.values()]
+
+    
+    @staticmethod
+    def from_maps(data: Any) -> 'SpecificProperties':
+        """Creates a SpecificProperties object from a list of dicts.
+        
+        Args:
+            e.g.:
+            [
+                {
+                    'key': 'key1',
+                    'value': 'value1',
+                    'unit': 'unit1',
+                },
+                {
+                    'key': 'key2',
+                    'value': 'value2',
+                    #no unit here
+                },
+            ]    
+
+        """
+
+        if data is None:
+            return SpecificProperties({})
+        
+        if not isinstance(data, list):
+            raise ValueError(f"data must be a list, but was {type(data)}")
+
+        #iterate over the list and create a dict of SpecificProperty objects
+        specific_properties : Dict[str, SpecificProperty] = {}
+        for item in data:
+            if not isinstance(item, dict):
+                raise ValueError(f"item must be a dict, but was {type(item)}")
+            specific_property = SpecificProperty.from_map(item)
+            specific_properties[specific_property.key] = specific_property
+
+
+        return SpecificProperties(specific_properties)

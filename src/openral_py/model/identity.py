@@ -1,6 +1,6 @@
 
 
-from typing import Optional
+from typing import Any, Dict, Optional
 
 
 class Identity:
@@ -8,31 +8,31 @@ class Identity:
         self, 
         uid: str, 
         name: Optional[str] = None, 
-        siteTag: Optional[str] = None, 
+        site_tag: Optional[str] = None, 
         alternateIDs: list = [], 
         alternateNames: list = []
     ):
         self.uid = uid
         self.name = name
-        self.siteTag = siteTag
-        self.alternateIDs = alternateIDs
-        self.alternateNames = alternateNames
+        self.site_tag = site_tag
+        self.alternate_ids = alternateIDs
+        self.alternate_names = alternateNames
 
     def to_map(self):
         return {
             "UID": self.uid,
             "name": self.name,
-            "siteTag": self.siteTag,
-            "alternateIDs": self.alternateIDs,
-            "alternateNames": self.alternateNames,
+            "siteTag": self.site_tag,
+            "alternateIDs": self.alternate_ids,
+            "alternateNames": self.alternate_names,
         }
     
     @staticmethod
-    def from_map(data):
+    def from_map(data: Dict[str, Any]):
         return Identity(
-            uid=data.get("UID"),
+            uid=data["UID"],
             name=data.get("name"),
-            siteTag=data.get("siteTag"),
+            site_tag=data.get("siteTag"),
             alternateIDs=data.get("alternateIDs", []),
             alternateNames=data.get("alternateNames", []),
         )
