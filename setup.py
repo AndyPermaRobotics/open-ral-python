@@ -18,7 +18,7 @@ setup(
     long_description_content_type='text/markdown',
     author='Permarobotics GmbH',
     author_email='blech@permarobotics.com',
-    url='https://github.com/AndyPermaRobotics/open-ral-python',
+    url='https://github.com/AndyPermaRobotics/openral-py',
     packages=find_packages(include=['openral_py', 'openral_py.*']),
     license='MIT',
     install_requires=requirements,
