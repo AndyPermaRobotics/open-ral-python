@@ -1,6 +1,6 @@
 from typing import Any, Dict, Optional
 
-from src.openral_py.model.container import Container
+from openral_py.model.container import Container
 
 
 class CurrentGeoLocation:

@@ -1,4 +1,4 @@
-from src.openral_py.model.definition import Definition
+from openral_py.model.definition import Definition
 
 
 class TestDefinition:

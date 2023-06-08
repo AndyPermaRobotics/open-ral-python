@@ -2,7 +2,7 @@ from typing import Any, Dict
 
 import pytest
 
-from src.openral_py.model.specific_property import SpecificProperty
+from openral_py.model.specific_property import SpecificProperty
 
 
 class TestSpecificPropertyFromMap:

@@ -2,7 +2,7 @@ from typing import Any, Dict
 
 import pytest
 
-from src.openral_py.model.identity import Identity
+from openral_py.model.identity import Identity
 
 
 class TestIdentity:

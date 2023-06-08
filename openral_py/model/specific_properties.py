@@ -1,6 +1,6 @@
 from typing import Any, Dict, List, Optional
 
-from src.openral_py.model.specific_property import SpecificProperty
+from openral_py.model.specific_property import SpecificProperty
 
 
 class SpecificProperties:

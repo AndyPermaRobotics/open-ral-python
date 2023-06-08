@@ -1,11 +1,11 @@
 
 from typing import Callable
 
-from src.openral_py.model.current_geo_location import CurrentGeoLocation
-from src.openral_py.model.definition import Definition
-from src.openral_py.model.identity import Identity
-from src.openral_py.model.specific_properties import SpecificProperties
-from src.openral_py.model.template import Template
+from openral_py.model.current_geo_location import CurrentGeoLocation
+from openral_py.model.definition import Definition
+from openral_py.model.identity import Identity
+from openral_py.model.specific_properties import SpecificProperties
+from openral_py.model.template import Template
 
 
 class RalObject:

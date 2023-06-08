@@ -1,4 +1,4 @@
-from src.openral_py.model.template import Template
+from openral_py.model.template import Template
 
 
 class TestTemplate:

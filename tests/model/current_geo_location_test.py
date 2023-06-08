@@ -1,7 +1,7 @@
 import pytest
 
-from src.openral_py.model.container import Container
-from src.openral_py.model.current_geo_location import CurrentGeoLocation
+from openral_py.model.container import Container
+from openral_py.model.current_geo_location import CurrentGeoLocation
 
 
 class TestCurrentGeoLocation:

@@ -1,7 +1,7 @@
 from typing import Any, Dict, Optional
 
-from src.openral_py.model.specific_properties import SpecificProperties
-from src.openral_py.model.specific_property import SpecificProperty
+from openral_py.model.specific_properties import SpecificProperties
+from openral_py.model.specific_property import SpecificProperty
 
 
 class TestSpecificProperties:
