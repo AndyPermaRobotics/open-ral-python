@@ -7,11 +7,15 @@ from setuptools import find_packages, setup
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
+with open('README.md') as f:
+    readme = f.read()
+
 setup(
     name='openral_py',
-    version='0.5',
+    version='0.6.3',
     description = 'Python package to work with openRAL',
-    long_description='This package contains reusable components to work with openRAL in python projects. For more informations about openRAL see: https://open-ral.io/',
+    long_description=readme,
+    long_description_content_type='text/markdown',
     author='Permarobotics GmbH',
     author_email='blech@permarobotics.com',
     url='https://github.com/AndyPermaRobotics/open-ral-python',

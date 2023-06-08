@@ -13,7 +13,7 @@ class RalRepository(ABC):
     """
 
     @abstractmethod
-    async def getRalObjectByUid(self, uid: str, specificPropertiesTransform: Optional[Callable] = None) -> RalObject:
+    async def get_ral_object_by_uid(self, uid: str, specificPropertiesTransform: Optional[Callable] = None) -> RalObject:
         """
         Returns the [RalObject] with the given uid. Looks for 'identity.UID' == uid in the database.
         If [specificPropertiesTransform] is not null, the [SpecificProperties] of the [RalObject] will be transformed to the given type.
@@ -21,7 +21,7 @@ class RalRepository(ABC):
         pass
     
     @abstractmethod
-    async def getRalObjectsWithContainerId(self, containerId: str) -> List[RalObject]:
+    async def get_ral_objects_with_container_id(self, containerId: str) -> List[RalObject]:
         """
         Returns all [RalObject]s with the given containerId. Looks for 'currentGeolocation.container.UID' == containerId in the database.
         """

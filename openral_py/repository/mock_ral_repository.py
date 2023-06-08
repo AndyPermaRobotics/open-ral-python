@@ -8,11 +8,14 @@ from openral_py.repository.ral_repository import RalRepository
 S = TypeVar('S', bound=SpecificProperties)
 
 class MockRalRepository(RalRepository):
-    def __init__(self, docsByUid: Dict[str, dict], docsByContainerId: Dict[str, List[str]]) -> None:
-        self.docsByUid = docsByUid
-        self.docsByContainerId = docsByContainerId
+    """
+    A mock implementation of [RalRepository] that stores [RalObject]s in memory.
+    """
+    def __init__(self, docs_by_uid: Dict[str, dict], docs_by_container_id: Dict[str, List[str]]) -> None:
+        self.docsByUid = docs_by_uid
+        self.docsByContainerId = docs_by_container_id
     
-    async def getRalObjectByUid(self, uid: str, specificPropertiesTransform: Optional[Callable] = None) -> RalObject:
+    async def get_ral_object_by_uid(self, uid: str, specificPropertiesTransform: Optional[Callable] = None) -> RalObject:
         doc = self.docsByUid.get(uid)
         
         if not doc:
@@ -22,7 +25,7 @@ class MockRalRepository(RalRepository):
         
         return ral_object
     
-    async def getRalObjectsWithContainerId(self, containerId: str) -> List[RalObject]:
+    async def get_ral_objects_with_container_id(self, containerId: str) -> List[RalObject]:
         uids = self.docsByContainerId.get(containerId)
         
         if not uids:
@@ -31,7 +34,7 @@ class MockRalRepository(RalRepository):
         result = []
         
         for uid in uids:
-            object = await self.getRalObjectByUid(uid)
+            object = await self.get_ral_object_by_uid(uid)
             result.append(object)
         
         return result

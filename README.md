@@ -1,39 +1,35 @@
-# open-ral-python
+# openral-py
 
 This package contains reusable components to work with openRAL in python projects. 
-
 For more informations about openRAL see: https://open-ral.io/
 
-
-## Build package
-
-Create a source distribution package with:
-```bash
-python setup.py sdist
-```
-
-### Install package from local source distribution
+## Installation
 
 ```bash
-pip install ./dist/open_ral_python-{current-version}.tar.gz
+pip install openral-py
 ```
 
-### Publish package to PyPI (https://pypi.org/)
+## Building blocks
 
-```bash
-twine upload ./dist/*
-```
+### openral_py.RalObject
 
-### Publish package to TestPyPI (https://test.pypi.org/)
+The `RalObject` class is the base class for all openRAL objects.
+For more informations see: https://open-ral.io/docs
 
-```bash
-twine upload --repository-url https://test.pypi.org/legacy/ dist/*
-```
+This class contains two methods:
 
-### Install package from TestPyPI
+* `from_map` - creates a new object from a map that you can get from a JSON string
+* `to_map` - creates a map from the object that you can convert to a JSON string
 
-```bash
-python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ openral-py  
-```
+### openral_py.repository.RalRepository
 
-`--extra-index-url https://pypi.org/simple/` is needed for dependencies that are not available on PyPI.
+The `RalRepository` class is the base class for all openRAL repositories.
+It provides a common interface to work with databases and other data sources that contain openRAL objects.
+It's abstract, you can either implement it yourself or search for a concrete implementation in other packages at PyPI: https://pypi.org/search/?q=openRAL
+
+You can use the `MockRalRepository` class for testing purposes.
+
+### openral_py.discovery.Discovery
+
+The `Discovery` class is a helper class to discover openRAL objects in a repository starting with a given RalObject.
+It can be used to find all objects that are connected to the given RALObject.
