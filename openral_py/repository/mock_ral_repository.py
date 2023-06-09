@@ -38,3 +38,14 @@ class MockRalRepository(RalRepository):
             result.append(object)
         
         return result
+    
+    async def get_ral_objects_by_ral_type(self, ralType: str) -> List[RalObject]:
+        result = []
+        
+        for uid in self.docsByUid:
+            object = await self.get_ral_object_by_uid(uid)
+            
+            if object.template.ral_type == ralType:
+                result.append(object)
+        
+        return result

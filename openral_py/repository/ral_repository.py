@@ -26,3 +26,10 @@ class RalRepository(ABC):
         Returns all [RalObject]s with the given containerId. Looks for 'currentGeolocation.container.UID' == containerId in the database.
         """
         pass
+
+    @abstractmethod
+    async def get_ral_objects_by_ral_type(self, ralType: str) -> List[RalObject]:
+        """
+        Returns all [RalObject]s with the given ralType. Looks for 'template.RALType' == ralType in the database.
+        """
+        pass 
