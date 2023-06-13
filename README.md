@@ -1,3 +1,6 @@
+
+# DEPRECATED: See [this repository](https://github.com/AndyPermaRobotics/openral-core)
+
 # openral-py
 
 This package contains reusable components to work with openRAL in python projects. 
